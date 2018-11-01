@@ -1,0 +1,21 @@
+.switch{
+  width:100%;
+}
+.switch__header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.switcher {
+	display: flex;
+	flex: 1;
+	justify-content: flex-start;
+}
+.mode-select-button {
+	position: relative;
+  min-width: 35px;
+	padding: 0px;
+}
+

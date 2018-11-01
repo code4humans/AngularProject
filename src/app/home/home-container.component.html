@@ -1,0 +1,16 @@
+<div class="home-container">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <div class="menu-options">
+        <button mat-button routerLink="/home">Home Opcion1</button>
+        <button mat-button color="primary" routerLink="/home/home2">Home Opcion2</button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

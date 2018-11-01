@@ -1,0 +1,19 @@
+<div class="supplier-container">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Search" type="text" [formControl]="searchControl">
+    </mat-form-field>
+  </div>
+  <app-switch-view [templates]="templates" [defaultTemplateKey]="defaultTemplate">
+
+  </app-switch-view>
+
+  <ng-template #cardViewTemplate>
+    <app-supplier-list-card [items]="items"></app-supplier-list-card>
+  </ng-template>
+
+  <ng-template #tableViewTemplate>
+    <app-supplier-list-table [items]="items"></app-supplier-list-table>
+  </ng-template>
+
+</div>

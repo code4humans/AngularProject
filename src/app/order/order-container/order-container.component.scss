@@ -1,0 +1,41 @@
+.order-container{
+  padding-top: 60px;
+  margin: 0% 1%;
+}
+.row-container{
+  display: flex;
+  align-items: center;
+  .expanded{
+    background-color: #425563;
+  }
+  .not-expanded{
+    &:hover {
+			background-color: #5e6f7a;
+		}
+  }
+}
+
+.order-number{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.caret-container{
+	left: 0px;
+	top: 0px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	z-index: 10000;
+	cursor: pointer;
+}
+.order-number-icon{
+  cursor: pointer;
+}
+.detail-table{
+  ::ng-deep .table-results-base {
+    min-height: auto !important;
+	}
+}

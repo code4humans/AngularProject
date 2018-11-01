@@ -1,0 +1,54 @@
+<div class="new-customer-container">
+  <h3>Nuevo Cliente</h3>
+  <form [formGroup]="newCustomerForm" (ngSubmit)="save()">
+    <mat-dialog-content>
+
+      <div class="element-form">
+        <label class="label-description">First Name:</label>
+        <mat-form-field class="new-customer-form-field">
+          <input type="text" matInput placeholder="First Name" aria-label="First Name" formControlName="firstName" />
+          <mat-error *ngIf="newCustomerForm.get('firstName').hasError('required')">First Name is required</mat-error>
+          <mat-error *ngIf="newCustomerForm.get('firstName').hasError('cannotContainSpace')">First Name cannot contain Space</mat-error>
+        </mat-form-field>
+
+      </div>
+      <div class="element-form">
+        <label class="label-description">Last Name:</label>
+        <mat-form-field class="new-customer-form-field">
+          <input type="text" matInput placeholder="Last Name" aria-label="Last Name" formControlName="lastName" />
+          <mat-error *ngIf="newCustomerForm.get('lastName').hasError('required')">Last Name is required</mat-error>
+          <mat-error *ngIf="newCustomerForm.get('lastName').hasError('cannotContainSpace')">Last Name cannot contain Space</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="element-form">
+        <label class="label-description">City:</label>
+        <mat-form-field class="new-customer-form-field">
+          <input type="text" matInput placeholder="City" aria-label="City" formControlName="city" />
+          <mat-error *ngIf="newCustomerForm.get('city').hasError('required')">City is required</mat-error>
+          <mat-error *ngIf="newCustomerForm.get('city').hasError('cannotContainSpace')">First Name cannot contain Space</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="element-form">
+        <label class="label-description">Country:</label>
+        <mat-form-field class="new-customer-form-field">
+          <input type="text" matInput placeholder="Country" aria-label="Country" formControlName="country" />
+          <mat-error *ngIf="newCustomerForm.get('country').hasError('required')">Country is required</mat-error>
+          <mat-error *ngIf="newCustomerForm.get('country').hasError('cannotContainSpace')">Country cannot contain Space</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="element-form">
+        <label class="label-description">Phone:</label>
+        <mat-form-field class="new-customer-form-field">
+          <input type="text" matInput placeholder="Phone" aria-label="Phone" formControlName="phone" />
+          <mat-error *ngIf="newCustomerForm.get('phone').hasError('required')">Phone is required</mat-error>
+          <mat-error *ngIf="newCustomerForm.get('phone').hasError('cannotContainSpace')">Phone cannot contain Space</mat-error>
+        </mat-form-field>
+      </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="newCustomerForm.invalid">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>

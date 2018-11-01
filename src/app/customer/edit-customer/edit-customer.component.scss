@@ -1,0 +1,19 @@
+.new-customer-form-field {
+  width: 100%;
+  padding-left: 10px;
+  @media (max-width: 767px) {
+    padding-left: 0px;
+  }
+}
+.element-form {
+  display: flex;
+  align-items: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+.label-description{
+  width: 110px;
+  margin-bottom: 0;
+}

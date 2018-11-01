@@ -1,0 +1,30 @@
+<div class="table-results-base" [ngStyle]="{ 'min-height': minTableHeight+'px' }">
+  <div *ngIf="items && items.length > 0">
+    <div>
+      <ngx-datatable #myTable class='material striped ngx-table'
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="0"
+          [limit]="limit"
+          [rowHeight]="50"
+          [rows]='items'>
+
+          <ngx-datatable-column *ngFor='let column of columns'
+            [flexGrow]="column.flexGrow"
+            [name]="column.name"
+            [resizeable]="column.resizeable"
+            [cellTemplate]="column.cellTemplate"
+            [prop]="column.prop"
+            [sortable]="column.sortable? true: false">
+          </ngx-datatable-column>
+
+          <ngx-datatable-row-detail #myDetailRow>
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+              <ng-container [ngTemplateOutlet]="detailTemplate" [ngTemplateOutletContext]="{row:row}"></ng-container>
+            </ng-template>
+          </ngx-datatable-row-detail>
+
+        </ngx-datatable>
+    </div>
+  </div>
+</div>
