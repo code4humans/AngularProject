@@ -19,7 +19,7 @@ export class SupplierContainerComponent implements OnInit, AfterViewInit {
   templates: Map<string, TemplateRef<any>> = new Map<string, TemplateRef<any>>();
   defaultTemplate: string;
   searchControl: FormControl = new FormControl();
-
+  isVisible = false;
   constructor(private service: SupplierService, private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
@@ -35,9 +35,11 @@ export class SupplierContainerComponent implements OnInit, AfterViewInit {
   }
 
   getSuppliers(page: number, rows: number, searchTerm: string = ''): void {
+    this.isVisible = true;
     this.service.getSupplierList(page, rows, searchTerm)
         .subscribe(response => {
           this.items = response;
+          this.isVisible = false;
         });
   }
   ngAfterViewInit(): void {
