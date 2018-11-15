@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { EditCustomerService } from './edit-customer.service';
 import { AddOrEditCustomer } from '../models/AddOrEditCustomer';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,7 +13,8 @@ export interface DialogData {
   selector: 'app-edit-customer',
   templateUrl: './edit-customer.component.html',
   styleUrls: ['./edit-customer.component.scss'],
-  providers: [EditCustomerService]
+  providers: [EditCustomerService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditCustomerComponent implements OnInit {
 

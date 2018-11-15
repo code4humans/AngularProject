@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CustomerService } from './customer.service';
 import { Customer } from '../models/customer';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -10,7 +10,8 @@ import { DetailCustomerComponent } from '../detail-customer/detail-customer.comp
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
-  providers : [CustomerService]
+  providers : [CustomerService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerListComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class CustomerListComponent implements OnInit {
   pageIndex = 0;
   isVisible = false;
 
-  constructor(private customerService: CustomerService, public dialog: MatDialog) {
+  constructor(private customerService: CustomerService, public dialog: MatDialog, private ref: ChangeDetectorRef) {
     this.getCustomer(1, this.pageSize);
   }
 
@@ -36,6 +37,7 @@ export class CustomerListComponent implements OnInit {
             this.customers = response;
             this.numberOfRecords = response[0].totalRecords;
             this.isVisible = false;
+            this.ref.markForCheck();
           }
         );
   }

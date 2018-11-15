@@ -1,11 +1,12 @@
-import { Component, OnInit, TemplateRef, Input } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, ChangeDetectionStrategy } from '@angular/core';
 import { leftToRightAnimation, rightToLeftAnimation } from '../../animations/enter-leave/enter-leave.animation';
 
 @Component({
   selector: 'app-switch-view',
   templateUrl: './switch-view.component.html',
   styleUrls: ['./switch-view.component.scss'],
-  animations: [leftToRightAnimation, rightToLeftAnimation]
+  animations: [leftToRightAnimation, rightToLeftAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwitchViewComponent implements OnInit {
 
