@@ -1,12 +1,15 @@
+@import '../../shared/responsive-breakpoints.scss';
 .customer-container{
   padding-top: 5%;
-  @media (max-width: 767px) {
+
+  @include respond-to(xs-screen) {
     padding-top: 15%;
   }
 }
 .new-customer{
   margin-left: 1%;
-  @media (max-width: 767px) {
+
+  @include respond-to(xs-screen) {
     padding-bottom: 10px;
   }
 }
@@ -14,8 +17,15 @@
   margin: 1%;
   display: inline-block;
   width: 20%;
-  @media (max-width: 767px) {
+
+  @include respond-to(xs-screen) {
     width: 98%;
+  }
+  @include respond-to(sm-screen) {
+    width: 48%;
+  }
+  @include respond-to(md-screen) {
+    width: 23%;
   }
 }
 .customer-header-image{

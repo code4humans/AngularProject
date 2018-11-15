@@ -1,0 +1,22 @@
+$mq-breakpoints: (
+	xs-screen: (min: 0, max: 599px),
+	sm-screen: (min: 600px, max: 959px),
+	md-screen: (min: 960px, max: 1279px),
+	lg-screen: (min: 1280px, max: 1919px),
+	xl-screen: (min: 1920px, max: 5000px)
+);
+
+@mixin respond-to($media1, $media2: null, $media3: null, $media4: null, $media5: null) {
+	$mq-input-list: $media1, $media2, $media3, $media4, $media5;
+	@each $media-input in $mq-input-list {
+		@if $media-input {
+			@if map-has-key($mq-breakpoints, $media-input) {
+				@media only screen and (min-width: #{map-get(map-get($mq-breakpoints, $media-input),min)}) and (max-width: #{map-get(map-get($mq-breakpoints, $media-input),max)}) {
+					@content;
+				}
+			} @else {
+				@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Please make sure it is defined in `$breakpoints` map.";
+			}
+		}
+	}
+}

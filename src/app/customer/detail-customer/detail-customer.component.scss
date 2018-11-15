@@ -1,7 +1,10 @@
+@import '../../shared/responsive-breakpoints.scss';
+
 .element-form {
   display: flex;
   align-items: center;
-  @media (max-width: 767px) {
+
+  @include respond-to(sm-screen) {
     flex-direction: column;
     align-items: baseline;
   }
